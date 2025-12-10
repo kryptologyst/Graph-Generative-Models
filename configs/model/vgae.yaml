@@ -1,0 +1,58 @@
+# Model configurations
+defaults:
+  - _self_
+
+# VGAE model configuration
+vgae:
+  encoder:
+    type: "gcn"
+    hidden_dims: [128, 64]
+    dropout: 0.1
+    activation: "relu"
+    use_batch_norm: true
+  decoder:
+    type: "inner_product"
+    activation: "sigmoid"
+
+# GraphVAE model configuration
+graphvae:
+  encoder:
+    type: "gcn"
+    hidden_dims: [256, 128, 64]
+    dropout: 0.1
+    activation: "relu"
+    use_batch_norm: true
+  decoder:
+    type: "mlp"
+    hidden_dims: [64, 128, 256]
+    dropout: 0.1
+    activation: "relu"
+    output_dim: null  # Will be set based on input
+
+# GraphRNN model configuration
+graphrnn:
+  encoder:
+    type: "gcn"
+    hidden_dims: [128, 64]
+    dropout: 0.1
+    activation: "relu"
+  decoder:
+    type: "rnn"
+    hidden_dim: 64
+    num_layers: 2
+    dropout: 0.1
+    cell_type: "lstm"
+
+# GRAN model configuration
+gran:
+  encoder:
+    type: "gcn"
+    hidden_dims: [128, 64]
+    dropout: 0.1
+    activation: "relu"
+  decoder:
+    type: "gran"
+    hidden_dim: 64
+    num_layers: 3
+    dropout: 0.1
+    attention_heads: 4

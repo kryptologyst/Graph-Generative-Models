@@ -1,0 +1,51 @@
+# Training configurations
+defaults:
+  - _self_
+
+# Default training configuration
+default:
+  epochs: 200
+  batch_size: 1
+  learning_rate: 0.01
+  weight_decay: 5e-4
+  optimizer: "adam"
+  scheduler: "reduce_lr_on_plateau"
+  patience: 50
+  min_delta: 0.001
+  kl_weight: 1.0
+  recon_weight: 1.0
+  gradient_clip_norm: 1.0
+  early_stopping: true
+  save_best: true
+
+# Fast training configuration
+fast:
+  epochs: 50
+  batch_size: 1
+  learning_rate: 0.01
+  weight_decay: 5e-4
+  optimizer: "adam"
+  scheduler: null
+  patience: 20
+  min_delta: 0.001
+  kl_weight: 1.0
+  recon_weight: 1.0
+  gradient_clip_norm: 1.0
+  early_stopping: true
+  save_best: true
+
+# Long training configuration
+long:
+  epochs: 500
+  batch_size: 1
+  learning_rate: 0.005
+  weight_decay: 1e-4
+  optimizer: "adam"
+  scheduler: "cosine"
+  patience: 100
+  min_delta: 0.0001
+  kl_weight: 1.0
+  recon_weight: 1.0
+  gradient_clip_norm: 1.0
+  early_stopping: true
+  save_best: true
